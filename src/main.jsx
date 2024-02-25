@@ -2,27 +2,56 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Greeting from './Greeting'
 import './index.css'
-// import App from './components/App'
+import Bgcolorchange from './components/Bgcolorchange'
 import Boxcolorchange from './Boxcolorchange'
-// import Secoundtodolist from './components/Secoundtodolist'
-// import { Counter } from './components/Counter'
-// import { Todolist } from './components/Todolist'
+import { Counter } from './components/Counter'
+import { Todolist } from './components/Todolist'
+import { createBrowserRouter, Outlet, RouterProvider, Link } from "react-router-dom";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
 
 const Apps = () => {
-  return (<div>
-    <h1>{console.log(window.localStorage)}</h1>
-    <Greeting randomMax={8} />
-    {/* <h1></h1> */}
-    {/* <Boxcolorchange /> */}
-    {/* <App /> */}
-    {/* <Counter /> */}
-    {/* <Todolist /> */}
-  </div>
+  return (
+    <div>
+      <Link to={"/greeting"}><button>clickme</button></Link >
+      <h1>this is home page</h1>
+      <Outlet />
+    </div >
   )
 }
 
-root.render(<Apps />);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Apps />,
+      children: [
+        {
+          path: '/greeting',
+          element: <Greeting randomMax={8} />
+        },
+        {
+          path: '/colorchange',
+          element: <Boxcolorchange />
+        }
+        ,
+        {
+          path: '/bgcolorchange',
+          element: <Bgcolorchange />
+        }
+        ,
+        {
+          path: '/counter',
+          element: <Counter />
+        }
+        ,
+        {
+          path: '/todolist',
+          element: <Todolist />
+        }
+      ]
+    }
+  ]
+)
+
+ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
 
