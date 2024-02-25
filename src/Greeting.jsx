@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 
-const Greeting = () => {
+const Greeting = ({ randomMax }) => {
 
-    const [random, setrandom] = useState(Math.floor(Math.random() * 5))
+    console.log(randomMax);
+
+    const [random, setrandom] = useState(Math.floor(Math.random() * randomMax))
     const [state, setstate] = useState('hi')
 
     useEffect(() => {
-        console.log(random);
+        window.localStorage.setItem("RandomNumber", random)
+
+        if (random === randomMax) {
+            window.localStorage.setItem("jackpot", true)
+        }
+        else {
+            window.localStorage.setItem("jackpot", false)
+        }
+
         switch (random) {
             case 0:
                 setstate("Anyoung haseyo")
@@ -27,14 +37,21 @@ const Greeting = () => {
                 setstate("Hello")
                 break;
         }
-    }, [])
+
+        return () => {
+            console.log("cleanup");
+            window.localStorage.removeItem("jackpot")
+            window.localStorage.removeItem("RandomNumber")
+        }
+
+    }, [random, randomMax])
 
 
     return (
         <div className="items-center w-screen h-screen flex justify-center">
             <h1
                 className="bg-yellow-200 p-5 rounded-xl border
-                 border-black text-black font-bold text-6xl animate-bounce">{state}</h1>
+                 border-black text-black font-bold text-6xl animate-bounce italic">{state}</h1>
         </div>
     )
 }
