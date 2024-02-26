@@ -48,10 +48,13 @@ const Greeting = ({ randomMax }) => {
 
 
     return (
-        <div className="items-center w-screen h-96 flex justify-center">
-            <h1
-                className="bg-yellow-200 p-5 rounded-xl border
+        <div>
+            <h1 className="py-8  font-semibold text-xl text-center ">Refresh to see result💨💨</h1>
+            <div className="items-center w-screen h-80 flex justify-center">
+                <h1
+                    className="bg-yellow-200 p-5 rounded-xl border
                  border-black text-black font-bold text-6xl animate-bounce italic">{state}</h1>
+            </div>
         </div>
     )
 }
