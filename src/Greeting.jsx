@@ -48,7 +48,7 @@ const Greeting = ({ randomMax }) => {
 
 
     return (
-        <div className="items-center w-screen h-screen flex justify-center">
+        <div className="items-center w-screen h-96 flex justify-center">
             <h1
                 className="bg-yellow-200 p-5 rounded-xl border
                  border-black text-black font-bold text-6xl animate-bounce italic">{state}</h1>

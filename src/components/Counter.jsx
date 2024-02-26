@@ -5,7 +5,7 @@ export const Counter = () => {
     let [count, setcount] = useState(0)
 
     return (
-        <div className="bg-red-100 w-full h-screen flex flex-col justify-center items-center">
+        <div className=" w-full h-96 flex flex-col justify-center items-center">
             <h1 className="p-4 bg-gray-700 rounded-3xl w-2/12 text-white">Counter : {count}</h1>
             <div className="m-8">
                 <button
