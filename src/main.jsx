@@ -16,7 +16,7 @@ const Apps = () => {
     <div>
       <div className="">
         <h1 className='p-4 text-4xl font-semibold bg-red-100 text-center m-4 rounded-xl shadow-xl'>React Conceptual Tasks</h1>
-        <div className='flex justify-center mx-20'>
+        <div className='flex justify-center mx-20 my-10'>
           <Link to={"/greeting"}><button className='m-4 bg-cyan-500 rounded-lg px-4  py-2 font-semibold'>Greetings</button></Link >
           <Link to={"/colorchange"}><button style={{ backgroundColor: "#" + btncrandomcolor }} className='m-4 bg-green-400 rounded-lg px-4  py-2 font-semibold'>Colorchange</button></Link >
           <Link to={"/Counter"}><button className='m-4 bg-green-400 rounded-lg px-4  py-2 font-semibold'>Counter</button></Link >
