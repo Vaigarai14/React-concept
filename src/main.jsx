@@ -5,6 +5,7 @@ import './index.css'
 import Bgcolorchange from './components/Bgcolorchange'
 import Boxcolorchange from './Boxcolorchange'
 import { Counter } from './components/Counter'
+import { PasswordGenerator } from './PasswordGenerator'
 import { Todolist } from './components/Todolist'
 import { createBrowserRouter, Outlet, RouterProvider, Link } from "react-router-dom";
 
@@ -22,6 +23,7 @@ const Apps = () => {
           <Link to={"/Counter"}><button className='m-4 bg-green-400 rounded-lg px-4  py-2 font-semibold'>Counter</button></Link >
           <Link to={"/Bgcolorchange"}><button className='m-4 bg-pink-400 rounded-lg px-4  py-2 font-semibold'>BackgroundColorChange</button></Link >
           <Link to={"/todolist"}><button className='m-4 bg-violet-400 rounded-lg px-4  py-2 font-semibold'>To-Do-List</button></Link >
+          <Link to={"/passwordgenerator"}><button className='m-4 bg-violet-400 rounded-lg px-4  py-2 font-semibold'>Password Generator</button></Link >
         </div>
       </div>
       <Outlet />
@@ -57,6 +59,10 @@ const router = createBrowserRouter(
         {
           path: '/todolist',
           element: <Todolist />
+        },
+        {
+          path: '/passwordgenerator',
+          element: <PasswordGenerator />
         }
       ]
     },
