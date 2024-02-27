@@ -36,8 +36,6 @@ export const PasswordGenerator = () => {
     }, [length, number, character])
 
     const passwordcopy = () => {
-        console.log(window.navigator.clipboard.writeText(password));
-
         window.navigator.clipboard.writeText(password)
         passwordref.current?.select()
     }
