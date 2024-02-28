@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
-import Greeting from './Greeting'
+import Greeting from './components/Greeting'
 import './index.css'
 import Bgcolorchange from './components/Bgcolorchange'
-import Boxcolorchange from './Boxcolorchange'
+import Boxcolorchange from './components/Boxcolorchange'
 import { Counter } from './components/Counter'
-import { PasswordGenerator } from './PasswordGenerator'
+import { PasswordGenerator } from './components/PasswordGenerator'
 import { Todolist } from './components/Todolist'
+import { CurrencyConverter } from './components/Currency-component/CurrencyConvertor'
 import { createBrowserRouter, Outlet, RouterProvider, Link } from "react-router-dom";
 
 
@@ -23,7 +24,8 @@ const Apps = () => {
           <Link to={"/Counter"}><button className='m-4 bg-green-400 rounded-lg px-4  py-2 font-semibold'>Counter</button></Link >
           <Link to={"/Bgcolorchange"}><button className='m-4 bg-pink-400 rounded-lg px-4  py-2 font-semibold'>BackgroundColorChange</button></Link >
           <Link to={"/todolist"}><button className='m-4 bg-violet-400 rounded-lg px-4  py-2 font-semibold'>To-Do-List</button></Link >
-          <Link to={"/passwordgenerator"}><button className='m-4 bg-violet-400 rounded-lg px-4  py-2 font-semibold'>Password Generator</button></Link >
+          <Link to={"/passwordgenerator"}><button className='m-4 bg-cyan-700 rounded-lg px-4  py-2 font-semibold'>Password Generator</button></Link >
+          <Link to={"/currencyconverter"}><button className='m-4 bg-red-400 rounded-lg px-4  py-2 font-semibold'>Curency Converter</button></Link >
         </div>
       </div>
       <Outlet />
@@ -63,9 +65,13 @@ const router = createBrowserRouter(
         {
           path: '/passwordgenerator',
           element: <PasswordGenerator />
-        }
+        },
       ]
     },
+    {
+      path: '/currencyconverter',
+      element: <CurrencyConverter />
+    }
   ]
 )
 
